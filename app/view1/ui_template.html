@@ -111,14 +111,14 @@
 
                 if (payload === undefined || payload === null || !topic || typeof topic !== 'string' || !topic.includes('@')) return null;
                 
-                // id y comando del objeto actual buscado.
+                // id and command of the current searched object.
                 const id = topic.split('@')[0];
                 const cxType = topic.split('@')[1];
                 const cxTypeParts = cxType.split(',');
 
-                for (const graphicObject of $scope.graphicObjects) {  // Recorre todos los objetos del .svg
+                for (const graphicObject of $scope.graphicObjects) {  // Loop through all the objects in the image .svg
                     const objId = graphicObject.id.split('@')[0];
-                    if (objId !== id) continue;  // Si no es el objeto actual buscado salta el siguiente for.
+                    if (objId !== id) continue;  // If it is not the object searched, skip the next block of code.
                     
                     for (const cxt of cxTypeParts) {
                         if (cxt === cxColor && typeof payload === 'string') {
